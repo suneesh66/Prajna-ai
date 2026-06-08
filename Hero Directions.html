@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prajna — Hero Directions</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* artboard-scoped hero styling for the comparison frames */
+  .ab{position:relative;width:100%;height:100%;background:var(--ink-900);color:#F4ECE0;
+    overflow:hidden;font-family:var(--font-sans);isolation:isolate}
+  .ab .ab-glow{position:absolute;left:50%;bottom:-50%;transform:translateX(-50%);width:1200px;height:900px;
+    background:radial-gradient(46% 46% at 50% 50%,rgba(255,120,46,.55) 0%,rgba(200,67,10,.26) 36%,rgba(200,67,10,0) 66%);
+    filter:blur(10px);z-index:0}
+  .ab .ab-grid{position:absolute;inset:0;z-index:0;opacity:.45;
+    background-image:linear-gradient(rgba(255,246,232,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,246,232,.04) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(120% 90% at 50% 0%,#000 30%,transparent 75%);
+    mask-image:radial-gradient(120% 90% at 50% 0%,#000 30%,transparent 75%)}
+  .ab-nav{position:absolute;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 44px;z-index:5;border-bottom:1px solid rgba(255,246,232,.07)}
+  .ab-nav .brand{display:flex;align-items:center;gap:10px}
+  .ab-nav .brand img{height:24px}
+  .ab-nav .brand .wm{font-family:var(--font-display);font-weight:600;font-size:20px;color:#FBF5EC}
+  .ab-nav .lk{display:flex;gap:24px;font-size:13px;color:rgba(244,236,224,.7)}
+  .ab-inner{position:relative;z-index:3;height:100%;padding:64px 56px 48px;display:flex}
+
+  /* shared bits */
+  .ab .eyebrow{margin-bottom:20px}
+  .ab .ab-cta{display:flex;gap:12px;margin-top:30px}
+  .ab .pill-btn{height:46px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:600}
+  .ab .pb-accent{background:var(--site-accent);color:#1A0E04}
+  .ab .pb-ghost{background:rgba(255,246,232,.03);color:#F4ECE0;border:1px solid rgba(255,246,232,.2)}
+
+  /* A — console */
+  .heroA{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;width:100%}
+  .heroA .display{font-size:64px}
+  .heroA .sub{margin-top:20px;max-width:440px;font-size:17px;line-height:1.5;color:var(--ink-200)}
+
+  /* B — kinetic type */
+  .heroB{width:100%;display:flex;flex-direction:column;justify-content:center}
+  .heroB .kicker{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .heroB .kicker .mk{width:30px;height:30px;filter:drop-shadow(0 0 14px rgba(255,120,46,.6))}
+  .heroB .big{font-family:var(--font-display);font-weight:500;font-size:128px;line-height:.92;letter-spacing:-.035em;color:#FBF5EC}
+  .heroB .big em{font-style:normal;font-weight:600;background:linear-gradient(120deg,var(--site-accent),var(--site-accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .heroB .row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:34px}
+  .heroB .sub{max-width:520px;font-size:18px;line-height:1.5;color:var(--ink-200)}
+
+  /* C — orbital core */
+  .heroC{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  .heroC .display{font-size:60px}
+  .heroC .sub{margin-top:18px;max-width:420px;font-size:16px;line-height:1.5;color:var(--ink-200)}
+  .heroC .orbit-box{position:relative;height:440px}
+  .heroC .orbit{position:absolute;inset:0}
+
+  /* console mini */
+  .miniconsole{background:linear-gradient(180deg,rgba(34,29,20,.92),rgba(18,15,9,.94));
+    border:1px solid rgba(255,246,232,.12);border-radius:18px;padding:14px;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+  .miniconsole .cbar{display:flex;align-items:center;gap:7px;padding:4px 6px 12px}
+  .miniconsole .cbar .dot{width:8px;height:8px;border-radius:50%}
+  .miniconsole .cbar .t{margin-left:6px;font-family:var(--font-mono);font-size:10px;color:var(--ink-400)}
+  .miniconsole .cbar .live{margin-left:auto;font-family:var(--font-mono);font-size:9px;text-transform:uppercase;color:var(--ok-400);letter-spacing:.06em}
+  .crow{display:flex;align-items:center;gap:11px;background:rgba(255,246,232,.025);border:1px solid rgba(255,246,232,.06);
+    border-radius:12px;padding:11px 12px;margin-top:8px}
+  .crow.lit{border-color:rgba(255,120,46,.5);background:rgba(255,120,46,.06)}
+  .crow .ci{width:32px;height:32px;border-radius:9px;background:rgba(255,120,46,.14);display:flex;align-items:center;justify-content:center;flex:none}
+  .crow .ci img{width:17px;height:17px}
+  .crow h5{margin:0;font-size:13px;font-weight:600;color:#F4ECE0}
+  .crow p{margin:2px 0 0;font-family:var(--font-mono);font-size:9.5px;color:var(--ink-400)}
+  .crow .v{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--site-accent-2)}
+</style>
+</head>
+<body style="margin:0">
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#0F0D05"/>
+    <circle cx="50" cy="74" r="34" fill="#FF782E" opacity="0.55"/>
+    <text x="50" y="46" font-family="sans-serif" font-size="26" font-weight="700" fill="#FBF5EC" text-anchor="middle">3</text>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel">
+const ICON = (n) => "assets/icons/" + n;
+
+function MiniNav(){
+  return (
+    <div className="ab-nav">
+      <div className="brand"><img src="assets/prajna-logo-light.svg" alt=""/><span className="wm">prajna</span></div>
+      <div className="lk"><span>Platform</span><span>Solutions</span><span>Blog</span><span>Careers</span></div>
+      <span className="pill-btn pb-accent" style={{height:38,fontSize:13}}>Contact sales</span>
+    </div>
+  );
+}
+
+function Orbit(){
+  const nodes = ["Compliance","Underwriting","Servicing","Lending","Sales","Marketing","Support"];
+  const n = nodes.length;
+  const pts = nodes.map((label,i)=>{
+    const ang = (-90 + i*(360/n)) * Math.PI/180;
+    return {label, x:50+38*Math.cos(ang), y:50+35*Math.sin(ang), i};
+  });
+  return (
+    <div className="orbit">
+      <svg className="orbit-links" viewBox="0 0 100 100" preserveAspectRatio="none">
+        {pts.map(p=><line key={p.i} x1="50" y1="50" x2={p.x} y2={p.y} stroke="rgba(255,120,46,0.26)" strokeWidth="0.22"/>)}
+      </svg>
+      <div className="orbit-spark"><span className="ring r1"></span><span className="ring r2"></span>
+        <img src="assets/prajna-mark.svg" alt=""/></div>
+      {pts.map(p=>(
+        <div className="onode" key={p.i} style={{left:p.x+"%",top:p.y+"%",animationDelay:(0.1+p.i*0.07)+"s"}}>
+          <span className="nd"></span>{p.label}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const ROWS = [
+  ["agent-user.svg","Prospecting Agent","sourcing net-new leads","live", true],
+  ["briefcase.svg","Lending Assistant","structuring loan options","97.6%", false],
+  ["cog.svg","Processing Agent","validating W-2 + assets","8.2s", false],
+];
+function MiniConsole(){
+  return (
+    <div className="miniconsole">
+      <div className="cbar"><span className="dot" style={{background:"#FF782E"}}></span>
+        <span className="dot" style={{background:"#FFC772"}}></span>
+        <span className="dot" style={{background:"#3A3327"}}></span>
+        <span className="t">prajna · agent os</span><span className="live">6 agents live</span></div>
+      {ROWS.map((r,i)=>(
+        <div className={"crow"+(r[4]?" lit":"")} key={i}>
+          <div className="ci"><img src={ICON(r[0])} alt=""/></div>
+          <div><h5>{r[1]}</h5><p>{r[2]}</p></div>
+          <span className="v">{r[3]}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function HeroA(){
+  return (
+    <div className="ab">
+      <div className="ab-glow"></div><div className="ab-grid"></div>
+      <MiniNav/>
+      <div className="ab-inner">
+        <div className="heroA">
+          <div>
+            <span className="eyebrow">Agentic AI · Financial enterprise</span>
+            <h1 className="display">One platform.<br/>Every financial <em>workflow.</em></h1>
+            <p className="sub">A coordinated workforce of AI agents across lending, servicing,
+              operations and support — one integration, one compliant core.</p>
+            <div className="ab-cta">
+              <span className="pill-btn pb-accent">Contact sales →</span>
+              <span className="pill-btn pb-ghost">Explore the platform</span>
+            </div>
+          </div>
+          <MiniConsole/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroB(){
+  return (
+    <div className="ab">
+      <div className="ab-glow"></div><div className="ab-grid"></div>
+      <MiniNav/>
+      <div className="ab-inner">
+        <div className="heroB">
+          <div className="kicker">
+            <img className="mk" src="assets/prajna-mark.svg" alt=""/>
+            <span className="eyebrow" style={{marginBottom:0}}>The agentic OS for financial services</span>
+          </div>
+          <div className="big">One platform.<br/>Every <em>workflow.</em></div>
+          <div className="row">
+            <p className="sub">Stop buying agents. Deploy the platform — and ship outcomes in weeks,
+              each deployment faster than the last.</p>
+            <div className="ab-cta" style={{marginTop:0}}>
+              <span className="pill-btn pb-accent">Contact sales →</span>
+              <span className="pill-btn pb-ghost">See solutions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroC(){
+  return (
+    <div className="ab">
+      <div className="ab-glow" style={{bottom:"auto",top:"-40%",opacity:.7}}></div><div className="ab-grid"></div>
+      <MiniNav/>
+      <div className="ab-inner">
+        <div className="heroC">
+          <div>
+            <span className="eyebrow">One compliant core</span>
+            <h1 className="display">Every agent<br/>orbits one <em>brain.</em></h1>
+            <p className="sub">Specialized agents share one governed core — compliance, data and
+              customization built in. Live in production today.</p>
+            <div className="ab-cta">
+              <span className="pill-btn pb-accent">Contact sales →</span>
+              <span className="pill-btn pb-ghost">Explore</span>
+            </div>
+          </div>
+          <div className="orbit-box"><Orbit/></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <DesignCanvas>
+      <DCSection id="heroes" title="Hero directions" subtitle="Three takes on the Prajna 2.0 home hero — obsidian, cinematic. Open any one fullscreen to compare.">
+        <DCArtboard id="a" label="A · Living Console" width={1280} height={720}><HeroA/></DCArtboard>
+        <DCArtboard id="b" label="B · Kinetic Type" width={1280} height={720}><HeroB/></DCArtboard>
+        <DCArtboard id="c" label="C · Orbital Core" width={1280} height={720}><HeroC/></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solutions — Prajna</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+</head>
+<body data-page="solutions">
+
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="grid-lines"></div>
+  <div class="wrap page-hero-inner">
+    <span class="eyebrow" data-rise>The platform, by outcome</span>
+    <h1 class="display" data-rise data-delay="60">Three families.<br />One compliant core.</h1>
+    <p class="lead" data-rise data-delay="120">Deploy a single agent family or the whole platform.
+      Every agent shares the same governance, data and customization layer — so the second
+      deployment is faster than the first, and the tenth is faster still.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="solnav">
+      <div class="solnav-rail" id="solnav-rail"></div>
+      <div class="solnav-panel" id="solnav-panel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- delivery model recap -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">Delivery &amp; ownership</span>
+      <h2 class="h2">Run it your way. Own your data.</h2>
+    </div>
+    <div class="deliver">
+      <div class="dcard" data-rise data-delay="60">
+        <div class="dk">Default</div>
+        <h4>SaaS, hosted by Prajna</h4>
+        <p>Fully managed and continuously improved. SOC 2 Type I &amp; II certified — the fastest path to value.</p>
+      </div>
+      <div class="dcard" data-rise data-delay="140">
+        <div class="dk">Enterprise</div>
+        <h4>Private cloud / hybrid</h4>
+        <p>Run in your AWS, Azure or GCP with the Prajna GenAI backend via API. Your perimeter, your controls.</p>
+      </div>
+      <div class="dcard" data-rise data-delay="220">
+        <div class="dk">IP model</div>
+        <h4>Clear ownership</h4>
+        <p>Prajna owns the platform; you own your data and configurations. Customizations are licensed to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="grid-lines"></div>
+  <div class="wrap cta-inner">
+    <span class="eyebrow solo" data-rise>Get started</span>
+    <h2 class="display" data-rise data-delay="60">Pick a workflow.<br />We'll show you an agent <em>running</em> on it.</h2>
+    <div class="hero-cta" data-rise data-delay="140">
+      <a class="btn btn-accent btn-lg" href="contact.html">Contact sales
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#0F0D05"/>
+    <circle cx="50" cy="74" r="34" fill="#FF782E" opacity="0.55"/>
+    <text x="50" y="46" font-family="sans-serif" font-size="30" font-weight="700" fill="#FBF5EC" text-anchor="middle">p</text>
+  </svg>
+</template>
+
+<script src="site.js"></script>
+<script>
+(function(){
+  var SOLUTIONS = [
+    {
+      num: "Solution 01", name: "Revenue & Growth",
+      tab: "Turn more leads into funded loans.",
+      desc: "Always-on acquisition and conversion agents that work every lead, defend the pipeline and free your loan officers to close.",
+      agents: [
+        ["agent-user.svg","LO Agents","Qualify, nurture and book appointments at scale."],
+        ["arrow.svg","Prospect Acquisition · SmartComm","Personalized, compliant outreach across channels."],
+        ["flash.svg","Pipeline Defender","Detects at-risk deals and re-engages before they stall."],
+        ["cog.svg","Process Conversion Agents","Move applicants from interest to signed app, automatically."]
+      ],
+      uc: { k:"Live · mortgage lending", q:"8.5× more funded loans per 1,000 leads, with a 32% lead-to-signed-app rate.",
+        metrics:[["32%","lead → signed app"],["8.5×","more funded loans"],["2×","revenue growth"]] }
+    },
+    {
+      num: "Solution 02", name: "Operations & Processing",
+      tab: "Compress the document-heavy middle.",
+      desc: "Agents that read, retrieve, reconcile and route — collapsing cycle times across underwriting, title and the back office.",
+      agents: [
+        ["briefcase.svg","Document Processing Agents","Extract, validate and reconcile across every doc type."],
+        ["node.svg","Title Package Agent","Visits county portals and downloads title packages on its own."],
+        ["message.svg","Inbox Intelligence","Triages, classifies and routes inbound at machine speed."],
+        ["system.svg","Underwriting Validation","Confirms W-2s, assets and conditions with confidence scores."]
+      ],
+      uc: { k:"Live · title insurance", q:"Title packages retrieved and assembled in seconds — no human queue.",
+        metrics:[["8.2s","avg package retrieval"],["24/7","portal coverage"],["0","manual handoffs"]] }
+    },
+    {
+      num: "Solution 03", name: "Servicing & Support",
+      tab: "Lower cost-to-serve, raise CSAT.",
+      desc: "Voice, text and chat agents that resolve borrower questions in any language, answer from your own knowledge, and stay compliant.",
+      agents: [
+        ["message.svg","Servicing & Support Agents","Resolve across voice, text and chat — one brain, every channel."],
+        ["system.svg","Knowledge Agents","Answer from your documents, with field-level traceability."],
+        ["agent-user.svg","Multilingual Support","Native-quality borrower support in dozens of languages."],
+        ["flash.svg","Avatar","A human-facing form factor — one surface, not a separate agent."]
+      ],
+      uc: { k:"Live · mortgage servicing", q:"Captures action items automatically, keeps teams aligned and stays compliant.",
+        metrics:[["86%","signature → close"],["4.9","borrower CSAT"],["↓","operating cost"]] }
+    }
+  ];
+
+  var rail = document.getElementById("solnav-rail");
+  var panel = document.getElementById("solnav-panel");
+  if(!rail) return;
+
+  rail.innerHTML = SOLUTIONS.map(function(s,i){
+    return '<button class="solnav-tab'+(i===0?' active':'')+'" data-i="'+i+'">'+
+      '<div class="sn-num">'+s.num+'</div><h3>'+s.name+'</h3><p>'+s.tab+'</p></button>';
+  }).join("");
+
+  function render(s){
+    var agents = s.agents.map(function(a){
+      return '<div class="sp-agent"><div class="ai"><img src="assets/icons/'+a[0]+'" alt=""/></div>'+
+        '<div><h5>'+a[1]+'</h5><p>'+a[2]+'</p></div></div>';
+    }).join("");
+    var metrics = s.uc.metrics.map(function(m){
+      return '<div class="um"><span class="uv">'+m[0]+'</span><span class="ul">'+m[1]+'</span></div>';
+    }).join("");
+    panel.innerHTML =
+      '<div class="sp-head"><div class="pglow"></div>'+
+        '<div class="sn-num">'+s.num+'</div><h2>'+s.name+'</h2><p>'+s.desc+'</p></div>'+
+      '<div class="sp-body">'+
+        '<div class="sp-col"><h4>Agents in this family</h4><div class="sp-agents">'+agents+'</div></div>'+
+        '<div class="sp-col"><h4>Real-world use case</h4>'+
+          '<div class="sp-usecase"><div class="uc-k">'+s.uc.k+'</div><q>'+s.uc.q+'</q>'+
+          '<div class="uc-metric">'+metrics+'</div></div></div>'+
+      '</div>';
+  }
+  render(SOLUTIONS[0]);
+
+  var tabs = rail.querySelectorAll(".solnav-tab");
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(){
+      tabs.forEach(function(x){x.classList.remove("active");});
+      t.classList.add("active");
+      render(SOLUTIONS[parseInt(t.getAttribute("data-i"),10)]);
+    });
+  });
+})();
+</script>
+</body>
+</html>
