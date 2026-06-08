@@ -1,0 +1,205 @@
+/* =============================================================================
+   PRAJNA — Illuminated Intelligence
+   colors_and_type.css  ·  Design-system foundation tokens
+   -----------------------------------------------------------------------------
+   Concept: insight emerging from complexity — light from darkness.
+   A dual-mode system: OBSIDIAN (warm-black brand world) + DAYLIGHT (warm-paper
+   product world), unified by the amber "spark" and warm neutrals.
+
+   Fonts are loaded from Google Fonts (the source site shipped DM Sans + Urbanist;
+   this system intentionally upgrades to an editorial pairing — see README).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Brand type — self-hosted Clash family (user-uploaded). Display + text are
+   the official Prajna faces; JetBrains Mono stays CDN-delivered. */
+@font-face{font-family:'Clash Display';src:url('fonts/ClashDisplay-Variable.ttf') format('truetype-variations');font-weight:200 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Clash Grotesk';src:url('fonts/ClashGrotesk-Variable.ttf') format('truetype-variations');font-weight:200 700;font-style:normal;font-display:swap}
+
+:root {
+  /* ---------------------------------------------------------------------------
+     1 · BRAND CORE — the spark
+     The 4-point mark runs an orange→amber gradient (sampled from the logo).
+     --------------------------------------------------------------------------- */
+  --spark-ember:   #C8430A;   /* deepest — the coal */
+  --spark-orange:  #FF782E;   /* PRIMARY — the flame (official brand orange) */
+  --spark-amber:   #FFC772;   /* the glow (official brand gold) */
+  --spark-gold:    #FFD79A;   /* the highlight */
+  --spark-gradient: linear-gradient(135deg, #C8430A 0%, #FF782E 42%, #FFC772 100%);
+  --spark-glow:    radial-gradient(60% 60% at 50% 100%, #FF782E 0%, #C8430A 38%, rgba(200,67,10,0) 72%);
+
+  /* ---------------------------------------------------------------------------
+     2 · INK — warm-black scale (the obsidian world)
+     Hue-warm neutrals built off the brand black #0F0D05. Never pure gray.
+     --------------------------------------------------------------------------- */
+  --ink-1000: #07060A;   /* void */
+  --ink-900:  #0F0D05;   /* BRAND BLACK — canvas */
+  --ink-850:  #16130C;
+  --ink-800:  #1E1A12;   /* raised surface on dark */
+  --ink-700:  #2A251B;   /* card / hairline-up */
+  --ink-600:  #3A3327;
+  --ink-500:  #574E3E;
+  --ink-400:  #7C7263;   /* muted text on dark */
+  --ink-300:  #A89E8E;
+  --ink-200:  #CFC6B8;
+
+  /* ---------------------------------------------------------------------------
+     3 · PAPER — warm-white scale (the daylight world)
+     --------------------------------------------------------------------------- */
+  --paper-0:   #FFFFFF;   /* pure card */
+  --paper-50:  #FFF8F5;   /* CANVAS — warm white (brand customPink) */
+  --paper-100: #FDF1E8;   /* sunk panel */
+  --paper-200: #F7EDE4;   /* tint block */
+  --paper-300: #ECE0D4;   /* hairline / border */
+  --paper-400: #D8C9B9;
+
+  /* ---------------------------------------------------------------------------
+     4 · TRUST — restrained ink-blue (finance/info secondary, used sparingly)
+     --------------------------------------------------------------------------- */
+  --trust-700: #06375F;
+  --trust-600: #085EA2;   /* brand customBlue */
+  --trust-400: #4D9BD6;
+  --trust-100: #E4F0FA;
+
+  /* ---------------------------------------------------------------------------
+     5 · SEMANTIC — warm-tuned status (never cold)
+     --------------------------------------------------------------------------- */
+  --ok-600:    #2E7D52;   --ok-400: #46B783;  --ok-50: #E7F4ED;
+  --warn-600:  #B5710A;   --warn-400: #E5A23B; --warn-50: #FBF0DC;
+  --danger-600:#C2391F;   --danger-400:#E4694F; --danger-50:#FBE9E4;
+  --info-600:  var(--trust-600); --info-50: var(--trust-100);
+
+  /* ---------------------------------------------------------------------------
+     6 · SEMANTIC ROLES — light (daylight) mode defaults
+     --------------------------------------------------------------------------- */
+  --bg:          var(--paper-50);
+  --bg-sunk:     var(--paper-100);
+  --surface:     var(--paper-0);
+  --surface-2:   var(--paper-100);
+  --fg:          var(--ink-900);   /* primary text */
+  --fg-2:        #4A4337;          /* secondary text */
+  --fg-3:        #857B6C;          /* muted / captions */
+  --border:      var(--paper-300);
+  --border-soft: #F2E8DF;
+  --accent:      var(--spark-orange);
+  --accent-ink:  #B4501A;          /* accent text on paper (AA) */
+  --on-accent:   #1A0E04;          /* text on amber fills */
+
+  /* ---------------------------------------------------------------------------
+     7 · TYPE — families & fluid scale
+     Display = Clash Display (brand display face, headlines/hero/numerals).
+     Sans    = Clash Grotesk (brand text face, UI/body/labels).
+     Mono    = JetBrains Mono (figures, IDs, ISO codes, confidence scores).
+     (weights 200–700 on both Clash variable faces; no true italic.)
+     --------------------------------------------------------------------------- */
+  --font-display: 'Clash Display', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-sans:    'Clash Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  --fs-display: clamp(48px, 6vw, 88px);
+  --fs-h1:      clamp(38px, 4.4vw, 60px);
+  --fs-h2:      clamp(30px, 3vw, 40px);
+  --fs-h3:      24px;
+  --fs-h4:      20px;
+  --fs-lead:    clamp(18px, 1.4vw, 21px);
+  --fs-body:    16px;
+  --fs-sm:      14px;
+  --fs-xs:      12px;
+  --fs-micro:   11px;
+
+  --lh-tight: 1.04;
+  --lh-snug:  1.18;
+  --lh-body:  1.6;
+
+  --tracking-tight: -0.02em;
+  --tracking-flat:  -0.01em;
+  --tracking-wide:  0.08em;
+  --tracking-caps:  0.14em;
+
+  /* ---------------------------------------------------------------------------
+     8 · SPACE — 4px base grid
+     --------------------------------------------------------------------------- */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+  --sp-6: 32px; --sp-7: 48px;  --sp-8: 64px; --sp-9: 96px; --sp-10: 128px;
+
+  /* ---------------------------------------------------------------------------
+     9 · RADIUS
+     --------------------------------------------------------------------------- */
+  --r-xs: 6px; --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
+
+  /* ---------------------------------------------------------------------------
+     10 · ELEVATION — warm-tinted shadows (never neutral gray)
+     --------------------------------------------------------------------------- */
+  --shadow-sm:  0 1px 2px rgba(60, 34, 12, 0.06), 0 1px 3px rgba(60, 34, 12, 0.05);
+  --shadow-md:  0 4px 12px rgba(60, 34, 12, 0.08), 0 2px 4px rgba(60, 34, 12, 0.05);
+  --shadow-lg:  0 18px 40px rgba(45, 26, 10, 0.12), 0 4px 10px rgba(45, 26, 10, 0.06);
+  --shadow-xl:  0 40px 80px rgba(30, 18, 8, 0.18);
+  /* signature: ember focus glow */
+  --glow-ember: 0 0 0 1px rgba(246,120,47,0.35), 0 8px 30px rgba(246,120,47,0.28);
+  --glow-soft:  0 10px 50px rgba(246,120,47,0.18);
+  /* on dark */
+  --shadow-dark: 0 24px 60px rgba(0,0,0,0.55);
+
+  /* ---------------------------------------------------------------------------
+     11 · MOTION
+     --------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms; --dur: 320ms; --dur-slow: 560ms;
+
+  --maxw: 1200px;
+}
+
+/* =============================================================================
+   OBSIDIAN MODE — opt in with [data-theme="dark"] or .obsidian
+   Re-points the semantic roles onto the warm-black world.
+   ========================================================================== */
+[data-theme="dark"], .obsidian {
+  --bg:          var(--ink-900);
+  --bg-sunk:     var(--ink-1000);
+  --surface:     var(--ink-800);
+  --surface-2:   var(--ink-700);
+  --fg:          #F7F1E8;
+  --fg-2:        var(--ink-200);
+  --fg-3:        var(--ink-400);
+  --border:      rgba(255, 246, 232, 0.10);
+  --border-soft: rgba(255, 246, 232, 0.06);
+  --accent:      var(--spark-orange);
+  --accent-ink:  var(--spark-amber);
+  --on-accent:   #1A0E04;
+}
+
+/* =============================================================================
+   SEMANTIC ELEMENT STYLES  (drop-in, opt-in via classes)
+   ========================================================================== */
+.ds-display { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-display);
+  line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.ds-display em { font-style: normal; font-weight: 600; color: var(--accent-ink); }
+
+.ds-h1 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h1);
+  line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.ds-h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2);
+  line-height: var(--lh-snug); letter-spacing: var(--tracking-flat); color: var(--fg); }
+.ds-h3 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h3);
+  line-height: 1.25; letter-spacing: var(--tracking-flat); color: var(--fg); }
+.ds-h4 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h4);
+  line-height: 1.3; color: var(--fg); }
+
+.ds-lead { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-lead);
+  line-height: 1.5; color: var(--fg-2); }
+.ds-body { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-body);
+  line-height: var(--lh-body); color: var(--fg-2); }
+.ds-sm { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-sm);
+  line-height: 1.5; color: var(--fg-3); }
+
+/* eyebrow / kicker — the small caps label above headings */
+.ds-eyebrow { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--accent-ink); }
+
+/* data / figures — monospace tabular */
+.ds-mono { font-family: var(--font-mono); font-feature-settings: "tnum" 1; letter-spacing: 0; }
+
+/* base resets a consumer can rely on */
+.ds-root { font-family: var(--font-sans); color: var(--fg); background: var(--bg);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
