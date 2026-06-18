@@ -55,6 +55,10 @@ h1,h2,h3{margin:0}
   background:linear-gradient(120deg,var(--site-accent) 0%,var(--site-accent-2) 90%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
+.display-blog em{font-style:normal;font-weight:600;
+  background:linear-gradient(120deg,var(--site-accent) 0%,var(--site-accent-2) 90%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
 .h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,4vw,56px);
   line-height:1.02;letter-spacing:-.025em;color:#FBF5EC}
 .h2 em{font-style:normal;font-weight:600;color:var(--site-accent-2)}
