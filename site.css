@@ -129,6 +129,7 @@ h1,h2,h3{margin:0}
 .hero-kicker{margin-bottom:26px}
 .hero h1{margin:0}
 .hero .display{font-size:clamp(44px,5.6vw,86px)}
+.hero .display-blog{font-size:clamp(44px,5.6vw,50px)}
 .hero-sub{margin:28px 0 0;max-width:520px;font-size:clamp(17px,1.35vw,20px);line-height:1.55;color:var(--ink-200)}
 .hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
 .hero-foot{margin-top:54px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
