@@ -107,7 +107,7 @@
               '<a href="contact.html">SOC 2 Type I &amp; II</a>' +
               '<a href="index.html#platform">Responsible AI</a>' +
               '<a href="contact.html">Security</a>' +
-              '<a href="contact.html">Privacy</a></div>' +
+              '<a href="privacy.html">Privacy</a></div>' +
           "</div>" +
           '<div class="ftr-bottom">' +
             '<span class="ftr-copy">© 2026 Prajna.ai, Inc. — Chicago, IL. All rights reserved.</span>' +
