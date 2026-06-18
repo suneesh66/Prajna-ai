@@ -106,7 +106,7 @@
             '<div class="ftr-col"><h5>Trust</h5>' +
               '<a href="contact.html">SOC 2 Type I &amp; II</a>' +
               '<a href="index.html#platform">Responsible AI</a>' +
-              '<a href="contact.html">Security</a>' +
+              '<a href="#">Security</a>' +
               '<a href="privacy.html">Privacy</a></div>' +
           "</div>" +
           '<div class="ftr-bottom">' +
